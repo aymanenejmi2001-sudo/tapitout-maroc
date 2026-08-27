@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+@theme {
+  /* Un noir légèrement chaud plutôt que le noir pur : moins agressif à
+     l'écran, plus proche de l'encre imprimée. */
+  --color-ink: #14110f;
+  /* Ivoire, pas blanc. Le blanc pur (#fff) est une couleur d'écran ; les
+     maisons impriment sur du papier teinté. Le basculement se voit d'un
+     coup d'œil sur une page entière. */
+  --color-paper: #fbfaf7;
+  --color-muted: #8c857d;
+  --color-surface: #efeae3;
+  /* Rouge du logo Tapitout, relevé directement dans le fichier (#b01010).
+     Réservé aux actions et aux repères de lecture — jamais en aplat large. */
+  --color-accent: #b01010;
+  --color-accent-hover: #8d0c0c;
+  /* Sable chaud, dans les tons des tapis : sert à séparer les sections
+     sans casser la sobriété du noir et blanc. */
+  --color-sand: #f6f2ee;
+  --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-body:
+    "Switzer", var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Quand le defilement adouci est actif, il pilote seul : le comportement
+   natif entrerait en conflit et provoquerait des a-coups. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Réglage des titres, centralisé ici plutôt que répété sur chaque
+   composant : une grotesque comme Inter demande un léger resserrement et
+   une graisse intermédiaire pour tenir en grand corps. */
+h1,
+h2 {
+  font-weight: 500;
+  letter-spacing: -0.028em;
+}
+
+h3 {
+  font-weight: 500;
+  letter-spacing: -0.018em;
+}
+
+/* Surtitre de section : petites capitales très espacées, l'usage des
+   maisons pour signaler une rubrique sans crier. */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+/* Repère visible au clavier : sans cela, on ne sait plus où l'on est
+   quand on navigue avec la touche Tab. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Pages légales */
+.legal h2 {
+  margin-top: 2.5rem;
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: var(--color-ink);
+}
+.legal h2:first-child {
+  margin-top: 0;
+}
+.legal p {
+  margin-top: 1rem;
+}
+.legal ul {
+  margin-top: 1rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+.legal li {
+  margin-top: 0.5rem;
+}
+.legal a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+/* Passage qu'il reste à compléter : impossible à manquer. */
+.legal .todo {
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-sand);
+  padding: 0.875rem 1rem;
+  font-size: 0.9375rem;
+  color: var(--color-ink);
+}
+
+/* Curseur d'accompagnement : affiche uniquement la ou il a un sens —
+   pointeur fin (souris, trackpad), et hors preference de mouvement
+   reduit. La detection se fait ici plutot qu'en JavaScript : aucune
+   image par seconde depensee sur un appareil tactile. */
+.curseur-suivi {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .curseur-suivi {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .curseur-suivi {
+    display: none !important;
+  }
+}
+
+/* Revelation du logo a l'arrivee : le nom se decouvre du centre vers les
+   cotes, avec une infime remise a l'echelle.
+
+   Le mode est « forwards » et non « both » : avec « both », l'etat de
+   depart s'applique AVANT que l'animation ne demarre, et le logo resterait
+   masque pour toujours si le navigateur ne l'executait pas. En « forwards »,
+   l'element part de son style normal — donc visible — et ne conserve que
+   l'etat final. La securite prime sur la premiere image. */
+@keyframes reveler-logo {
+  from {
+    clip-path: inset(0 50% 0 50%);
+    transform: scale(1.06);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    transform: scale(1);
+  }
+}
+
+.logo-entree {
+  animation: reveler-logo 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes monter-doux {
+  from {
+    transform: translateY(16px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Seul le glissement est anime, jamais l'opacite : une accroche qui
+   depend d'une animation pour exister peut ne jamais apparaitre. */
+.tagline-entree {
+  animation: monter-doux 1s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-entree,
+  .tagline-entree {
+    animation: none;
+  }
+}
