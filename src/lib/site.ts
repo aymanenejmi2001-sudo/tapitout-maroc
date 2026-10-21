@@ -179,23 +179,23 @@ export const bespoke = {
   images: [
     {
       src: "/images/bespoke-1.jpg",
-      alt: "Grand salon avec tapis sur mesure de forme libre",
+      alt: "Salon de riad, grand tapis sur mesure sous une lumière rasante",
     },
     {
       src: "/images/bespoke-2.jpg",
-      alt: "Chambre habillée d'un tapis aux contours courbes",
+      alt: "Tapis au contour libre dans une pièce aux murs sable",
     },
     {
       src: "/images/bespoke-3.jpg",
-      alt: "Tapis à motif abstrait découpé en forme organique",
+      alt: "Tapis découpé en forme organique devant une baie voilée",
     },
     {
       src: "/images/bespoke-4.jpg",
-      alt: "Tapis contourné autour d'une jardinière en pierre",
+      alt: "Grand tapis à vagues sculptées, ouvert sur l'océan",
     },
     {
       src: "/images/bespoke-5.jpg",
-      alt: "Salon ouvert sur la montagne avec tapis aux bords libres",
+      alt: "Majlis clair, tapis pleine surface au tissage apparent",
     },
   ],
 };
