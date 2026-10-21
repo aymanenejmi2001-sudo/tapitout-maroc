@@ -48,15 +48,39 @@ export default async function CollectionPage({ params }: Params) {
 
         <div className="mt-8 grid gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
-            <div className="relative aspect-[631/726] overflow-hidden rounded">
-              <Image
-                src={item.image}
-                alt={item.name}
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
+            <div>
+              <div className="relative aspect-[631/726] overflow-hidden rounded">
+                <Image
+                  src={item.image}
+                  alt={`${item.name} — détail du tissage`}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Les autres prises de vue de la pièce. Plusieurs collections
+                  existent en variantes — une seule photographie en donnait
+                  une idée fausse. Rien ne s'affiche quand il n'y en a pas. */}
+              {item.gallery && item.gallery.length > 0 && (
+                <div className="mt-3 grid grid-cols-3 gap-3">
+                  {item.gallery.map((src, i) => (
+                    <div
+                      key={src}
+                      className="relative aspect-square overflow-hidden rounded"
+                    >
+                      <Image
+                        src={src}
+                        alt={`${item.name} — variante ${i + 2}`}
+                        fill
+                        sizes="(max-width: 1024px) 33vw, 17vw"
+                        className="object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.06]"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </Reveal>
 

@@ -63,51 +63,93 @@ export const process = [
 /* GALERIE — toutes les vignettes partagent le meme format : c'est ce qui
    donne une grille calme. Des hauteurs inégales, colonne par colonne,
    fatiguent l'œil et brouillent la lecture des légendes. */
+/* RÉALISATIONS : seize chantiers photographiés chez les clients de la
+   maison. Ces vues ont remplacé les visuels du template d'origine, qui
+   montraient le travail d'autres marques sous le titre « Réalisations ».
+
+   Les intitulés décrivent ce que la photographie montre. Pour afficher
+   la ville d'un chantier, complétez le champ meta — rien n'est inventé
+   ici, une localisation fausse se vérifie trop facilement. */
 export const gallery = [
   {
-    title: "Forme libre, grande dimension",
-    meta: "Sur mesure · Contour organique",
-    image: "/images/gal-forme-libre.jpg",
+    title: "Grand séjour, tapis pleine largeur",
+    meta: "Chantier livré · Pose sur marbre",
+    image: "/images/realisations/projet-1.webp",
   },
   {
-    title: "Salon marocain",
-    meta: "Casablanca · Sur mesure",
-    image: "/images/gal-1.jpg",
+    title: "Salon courbe autour de la cheminée",
+    meta: "Chantier livré · Découpe sur mesure",
+    image: "/images/realisations/projet-2.webp",
   },
   {
-    title: "Habillage d'escalier",
-    meta: "Marches sur mesure · Motif graphique",
-    image: "/images/gal-escalier.jpg",
+    title: "Séjour traversant, baies pleine hauteur",
+    meta: "Chantier livré · Grande dimension",
+    image: "/images/realisations/projet-3.webp",
   },
   {
-    title: "Relief et matière",
-    meta: "Détail · Poil sculpté",
-    image: "/images/gal-texture.jpg",
+    title: "Double salon, assises en vis-à-vis",
+    meta: "Chantier livré · Deux pièces assorties",
+    image: "/images/realisations/projet-4.webp",
   },
   {
-    title: "Le calme comme matière",
-    meta: "Résidentiel · Rabat",
-    image: "/images/gal-3.jpg",
+    title: "Séjour clair, tapis bord à bord",
+    meta: "Chantier livré · Pose au millimètre",
+    image: "/images/realisations/projet-5.webp",
   },
   {
-    title: "Une pièce, une ambiance",
-    meta: "Séjour · Grande surface",
-    image: "/images/gal-salon-bois.jpg",
+    title: "Salon contemporain, assises blanches",
+    meta: "Chantier livré · Poil ras",
+    image: "/images/realisations/projet-6.webp",
   },
   {
-    title: "Courbes et lumière",
-    meta: "Séjour · Contour libre",
-    image: "/images/bespoke-5.jpg",
+    title: "Pièce de réception sous lustre",
+    meta: "Chantier livré · Contour ajusté",
+    image: "/images/realisations/projet-7.webp",
   },
   {
-    title: "Motif dessiné dans la matière",
-    meta: "Pièce unique · Façonnage",
-    image: "/images/bespoke-3.jpg",
+    title: "Plateau de bureaux",
+    meta: "Chantier livré · Dalles, passage intense",
+    image: "/images/realisations/projet-8.webp",
   },
   {
-    title: "Contournement sur mesure",
-    meta: "Découpe · Obstacle intégré",
-    image: "/images/bespoke-4.jpg",
+    title: "Séjour en longueur",
+    meta: "Chantier livré · Sol poli",
+    image: "/images/realisations/projet-9.webp",
+  },
+  {
+    title: "Salon aux voilages",
+    meta: "Chantier livré · Teinte claire",
+    image: "/images/realisations/projet-10.webp",
+  },
+  {
+    title: "Salon cuir et marbre",
+    meta: "Chantier livré · Tapis rond",
+    image: "/images/realisations/projet-11.webp",
+  },
+  {
+    title: "Séjour aux tables basses bois",
+    meta: "Chantier livré · Sur mesure",
+    image: "/images/realisations/projet-12.webp",
+  },
+  {
+    title: "Grand salon d'angle",
+    meta: "Chantier livré · Très grande surface",
+    image: "/images/realisations/projet-13.webp",
+  },
+  {
+    title: "Espace de travail, vue dégagée",
+    meta: "Chantier livré · Tertiaire",
+    image: "/images/realisations/projet-14.webp",
+  },
+  {
+    title: "Coin salon, assises basses",
+    meta: "Chantier livré · Tapis rond",
+    image: "/images/realisations/projet-15.webp",
+  },
+  {
+    title: "Séjour face à la mer",
+    meta: "Chantier livré · Contour libre",
+    image: "/images/realisations/projet-16.webp",
   },
 ];
 
@@ -363,58 +405,151 @@ export type Collection = {
   status: string;
   year: string;
   image: string;
-  /* DESCRIPTION : deux ou trois phrases sur la matière, le tissage et
-     l'usage auquel la collection est destinée. À compléter. */
+  /* Les autres prises de vue de la pièce. La fiche les affiche sous la
+     photo principale ; une collection qui n'en a qu'une reste valable. */
+  gallery?: string[];
+  /* DESCRIPTION : ce que la photographie montre, et rien de plus. Les
+     caractéristiques techniques — matière, hauteur de poil, dimensions
+     disponibles — ne peuvent pas être devinées : elles sont signalées
+     entre crochets et [sansRappels] les retire de l'affichage tant
+     qu'elles ne sont pas renseignées. */
   description: string;
   wide?: boolean;
 };
 
+/* LE CATALOGUE RÉEL DE LA MAISON — onze collections, photographiées à
+   l'atelier. Les descriptions ci-dessous décrivent uniquement ce qui est
+   visible sur la prise de vue : le dessin, la couleur, le relief. Tout ce
+   qui relève de la fiche technique reste à compléter par la maison. */
 export const collections: Collection[] = [
-  {
-    slug: "calmora",
-    name: "Collection Calmora",
-    status: "Disponible au magasin",
-    year: "2026",
-    image: "/images/col-calmora.jpg",
-    description:
-      "Un rouge profond, presque bordeaux, à la surface veloutée qui change de nuance selon l'angle de la lumière. Une pièce qui réchauffe un salon sobre et supporte les grands volumes.\n\n[À COMPLÉTER : matière, hauteur de poil, teintes disponibles.]",
-  },
   {
     slug: "riviera",
     name: "Collection Riviera",
     status: "Disponible au magasin",
     year: "2026",
-    image: "/images/col-riviera.jpg",
+    image: "/images/collections/riviera-3.webp",
+    gallery: [
+      "/images/collections/riviera-1.webp",
+      "/images/collections/riviera-2.webp",
+      "/images/collections/riviera-4.webp",
+    ],
     description:
-      "Un dessin géométrique beige court sur un fond gris clair, en poil ras. Le motif structure la pièce sans l'alourdir : il tient dans un séjour contemporain comme dans une chambre.\n\n[À COMPLÉTER : matière, hauteur de poil, teintes disponibles.]",
+      "La pièce la plus affirmée de la maison. De larges courbes rouge profond se croisent sur un fond crème, dans un dessin qui tient de l'enseigne peinte à la main. La même collection se décline en version graphique : un entrelacs de lignes dorées sur fond gris bleuté, beaucoup plus retenu.\n\nÀ poser dans une pièce sobre, où elle tiendra seule le rôle principal.\n\n[À COMPLÉTER : matière, hauteur de poil, teintes et dimensions disponibles.]",
   },
   {
-    slug: "costa",
-    name: "Collection Costa",
+    slug: "illusion",
+    name: "Collection Illusion",
     status: "Disponible au magasin",
     year: "2026",
-    image: "/images/col-costa.jpg",
+    image: "/images/collections/illusion-3.webp",
+    gallery: [
+      "/images/collections/illusion-1.webp",
+      "/images/collections/illusion-2.webp",
+      "/images/collections/illusion-4.webp",
+    ],
     description:
-      "[À COMPLÉTER — l'image actuellement associée à cette collection est un visuel de présentation, pas une photo de tapis. Remplacez public/images/col-costa.jpg par une photo du produit, puis décrivez-le ici.]",
-    wide: true,
-  },
-  {
-    slug: "elan",
-    name: "Collection Élan",
-    status: "Disponible au magasin",
-    year: "2026",
-    image: "/images/col-elan.jpg",
-    description:
-      "Un tracé courbe dessiné dans la matière : deux hauteurs de poil se répondent sur un fond sable, et le dessin apparaît selon la lumière. La pièce la plus graphique de la maison.\n\n[À COMPLÉTER : matière, hauteur de poil, teintes disponibles.]",
+      "Une surface peinte plutôt que tissée : des lavis superposés où le rouille, l'ocre et le bleu d'encre affleurent sous un gris de lin. Aucun motif ne se répète, l'œil ne trouve jamais deux fois le même endroit.\n\nC'est la collection la plus colorée du catalogue, et celle qui supporte le mieux un intérieur très dépouillé.\n\n[À COMPLÉTER : matière, hauteur de poil, teintes et dimensions disponibles.]",
   },
   {
     slug: "eclipse",
     name: "Collection Eclipse",
     status: "Disponible au magasin",
     year: "2026",
-    image: "/images/col-eclipse.jpg",
+    image: "/images/collections/eclipse-1.webp",
+    gallery: ["/images/collections/eclipse-2.webp"],
     description:
-      "Un uni doré à reflets, sans motif : toute la présence vient de la matière et de sa façon de capter la lumière rasante. À poser dans une pièce claire, où il tient le rôle principal.\n\n[À COMPLÉTER : matière, hauteur de poil, teintes disponibles.]",
+      "Le dessin n'est pas teint, il est sculpté. Des vagues continues sont taillées dans l'épaisseur du poil : deux hauteurs se répondent, et le motif n'apparaît vraiment que lorsque la lumière arrive de côté. Au zénith, le tapis redevient uni.\n\nUne seconde version pousse le contraste, en brun et crème.\n\n[À COMPLÉTER : matière, hauteur de poil, teintes et dimensions disponibles.]",
+  },
+  {
+    slug: "ms-luxe",
+    name: "Collection MS Luxe",
+    status: "Disponible au magasin",
+    year: "2026",
+    image: "/images/collections/ms-luxe-1.webp",
+    gallery: ["/images/collections/ms-luxe-2.webp"],
+    description:
+      "Un relief de pierre fendue, comme une terre sèche vue de haut. Les veines sont creusées dans la matière et dessinent des plaques irrégulières aux tons de sable et de terre d'ombre.\n\nLa pièce la plus sculpturale de la maison : elle se regarde autant qu'elle se foule.\n\n[À COMPLÉTER : matière, hauteur de poil, teintes et dimensions disponibles.]",
+  },
+  {
+    slug: "como",
+    name: "Collection Como",
+    status: "Disponible au magasin",
+    year: "2026",
+    image: "/images/collections/como-2.webp",
+    gallery: [
+      "/images/collections/como-1.webp",
+      "/images/collections/como-3.webp",
+    ],
+    description:
+      "Des formes ouvertes, cernées d'un trait d'or, posées sur un fond de lin. Le dessin reste ample et ne sature jamais la surface : il structure la pièce sans la fermer.\n\nLa collection se décline aussi en grandes arches concentriques et en projections dorées sur fond crème.\n\n[À COMPLÉTER : matière, hauteur de poil, teintes et dimensions disponibles.]",
+  },
+  {
+    slug: "velaris",
+    name: "Collection Velaris",
+    status: "Disponible au magasin",
+    year: "2026",
+    image: "/images/collections/velaris-1.webp",
+    gallery: [
+      "/images/collections/velaris-2.webp",
+      "/images/collections/velaris-3.webp",
+    ],
+    description:
+      "Un camaïeu de sable, sans motif ni bord : la couleur se dépose par nappes, plus dense ici, presque blanchie là, comme un enduit passé à la main.\n\nC'est la pièce la plus silencieuse du catalogue, faite pour une pièce déjà chargée ou pour laisser le mobilier parler seul.\n\n[À COMPLÉTER : matière, hauteur de poil, teintes et dimensions disponibles.]",
+  },
+  {
+    slug: "flec",
+    name: "Collection Flec",
+    status: "Disponible au magasin",
+    year: "2026",
+    image: "/images/collections/flec-1.webp",
+    gallery: [
+      "/images/collections/flec-2.webp",
+      "/images/collections/flec-3.webp",
+    ],
+    description:
+      "Un losange répété, creusé dans le poil, qui donne à la surface un grain régulier de vannerie. La lumière s'accroche sur les arêtes et le dessin change selon l'endroit d'où on le regarde.\n\nUne variante abandonne la trame pour un gris charbon usé, beaucoup plus libre.\n\n[À COMPLÉTER : matière, hauteur de poil, teintes et dimensions disponibles.]",
+  },
+  {
+    slug: "euphoria",
+    name: "Collection Euphoria",
+    status: "Disponible au magasin",
+    year: "2026",
+    image: "/images/collections/euphoria-1.webp",
+    description:
+      "Un veinage de marbre, gris sur blanc cassé, où le trait se fend et se ramifie sans jamais se refermer. Le dessin couvre toute la surface mais reste clair : il éclaire la pièce au lieu de l'alourdir.\n\n[À COMPLÉTER : matière, hauteur de poil, teintes et dimensions disponibles.]",
+  },
+  {
+    slug: "india",
+    name: "Collection India",
+    status: "Disponible au magasin",
+    year: "2026",
+    image: "/images/collections/india-2.webp",
+    gallery: ["/images/collections/india-1.webp"],
+    description:
+      "Ici le motif, c'est la matière. Des boucles serrées, nouées une à une, forment un relief dru d'écru et de blé qu'on sent sous le pied avant de le voir.\n\nAucun dessin, aucune teinte rapportée : la pièce la plus brute de la maison, et la plus chaude.\n\n[À COMPLÉTER : matière, hauteur de poil, teintes et dimensions disponibles.]",
+  },
+  {
+    slug: "cloff",
+    name: "Collection Cloff",
+    status: "Disponible au magasin",
+    year: "2026",
+    image: "/images/collections/cloff-1.webp",
+    gallery: [
+      "/images/collections/cloff-2.webp",
+      "/images/collections/cloff-3.webp",
+    ],
+    description:
+      "Une côte fine et régulière, tissée à plat, dans des tons de lin et de craie. Rien ne dépasse, rien n'accroche : c'est un fond, au sens le plus noble du terme.\n\nLa pièce à choisir quand le tapis doit tenir la pièce sans se faire remarquer.\n\n[À COMPLÉTER : matière, hauteur de poil, teintes et dimensions disponibles.]",
+  },
+  {
+    slug: "diamond",
+    name: "Collection Diamond",
+    status: "Disponible au magasin",
+    year: "2026",
+    image: "/images/collections/diamond-1.webp",
+    gallery: ["/images/collections/diamond-2.webp"],
+    description:
+      "Un uni, sans aucun dessin. Toute la présence vient du fil, qui renvoie la lumière différemment selon le sens du poil : la même pièce paraît plus claire d'un bout de la pièce, plus profonde de l'autre.\n\n[À COMPLÉTER : matière, hauteur de poil, teintes et dimensions disponibles.]",
   },
 ];
 
