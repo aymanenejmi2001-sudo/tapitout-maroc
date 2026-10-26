@@ -23,9 +23,9 @@ rm -rf public/_i
 # L'export est écrit dans .next-export (c'est son distDir). On n'y garde que
 # ce que le navigateur peut réellement demander : les originaux pèsent
 # plusieurs dizaines de Mo et seules les variantes de _i sont servies.
-# Restent hero.jpg, lu en direct pour l'aperçu de partage, et les vectoriels.
+# Restent hero.jpg, les aperçus de partage (lus tels quels) et les vectoriels.
 out=.next-export
-find "$out/images" -type f ! -name 'hero.jpg' ! -name '*.svg' -delete
+find "$out/images" -type f ! -name 'hero.jpg' ! -name '*.svg' ! -path '*/partage/*' -delete
 find "$out/images" -type d -empty -delete
 
 # GitHub Pages ignore les dossiers commençant par « _ » sans ce fichier.

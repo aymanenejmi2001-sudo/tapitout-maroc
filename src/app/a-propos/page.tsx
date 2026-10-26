@@ -1,19 +1,22 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 import { about } from "@/lib/site";
+import JsonLd from "@/components/JsonLd";
+import { filAriane, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "À propos — Tapitout Maroc",
+export const metadata = pageMetadata({
+  titre: "L'atelier Tapitout — tapis sur mesure à Casablanca",
   description:
-    "La maison Tapitout : un atelier de tapis sur mesure, du relevé sur place à la pose.",
-};
+    "Un atelier, pas un revendeur : chaque tapis Tapitout est relevé chez vous, taillé à vos dimensions et fini dans notre atelier de Casablanca.",
+  chemin: "/a-propos",
+});
 
 export default function AProposPage() {
   return (
     <main id="contenu" className="pt-[68px]">
+      <JsonLd data={filAriane([{ nom: "Accueil", chemin: "/" }, { nom: "À propos", chemin: "/a-propos" }])} />
       {/* Hero : texte à gauche, image à droite */}
       <section className="px-3">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-6">

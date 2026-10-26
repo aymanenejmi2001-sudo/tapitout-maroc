@@ -6,6 +6,14 @@ import Process from "@/components/Process";
 import Stats from "@/components/Stats";
 import Gallery from "@/components/Gallery";
 import About from "@/components/About";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  titre: "Tapis sur mesure à Casablanca et au Maroc — Tapitout",
+  description:
+    "Tapitout façonne des tapis sur mesure à Casablanca : relevé sur place, essayage chez vous, finitions maîtrisées en atelier, livraison et pose partout au Maroc.",
+  chemin: "/",
+});
 
 /* Ordre de lecture de l'accueil : on accroche, on montre, on explique,
    on prouve, on signe.

@@ -4,8 +4,16 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
+import JsonLd from "@/components/JsonLd";
 import { collections, site } from "@/lib/site";
 import { sansRappels } from "@/lib/text";
+import {
+  adresse,
+  extrait,
+  filAriane,
+  pageMetadata,
+  partageCollection,
+} from "@/lib/seo";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -21,11 +29,15 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const item = collections.find((c) => c.slug === slug);
   if (!item) return {};
-  return {
-    title: `${item.name} — Tapitout Maroc`,
-    description: `${item.name}, façonnable sur mesure — toutes dimensions, toutes formes. Relevé sur place et pose partout au Maroc.`,
-    openGraph: { images: [item.image] },
-  };
+  return pageMetadata({
+    titre: `${item.name} — tapis sur mesure | Tapitout Maroc`,
+    /* L'extrait vient de la description écrite pour la fiche : chaque page
+       a ainsi son propre texte dans les résultats, au lieu d'une phrase
+       commune à onze collections. */
+    description: extrait(item.description),
+    chemin: `/collections/${item.slug}`,
+    partage: partageCollection(item.slug, item.name),
+  });
 }
 
 export default async function CollectionPage({ params }: Params) {
@@ -38,8 +50,31 @@ export default async function CollectionPage({ params }: Params) {
     `Bonjour, je suis intéressé(e) par la ${item.name}.`,
   );
 
+  const donnees = [
+    filAriane([
+      { nom: "Accueil", chemin: "/" },
+      { nom: "Collections", chemin: "/collections" },
+      { nom: item.name, chemin: `/collections/${item.slug}` },
+    ]),
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: item.name,
+      url: adresse(`/collections/${item.slug}`),
+      description: extrait(item.description),
+      inLanguage: "fr-MA",
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        contentUrl: `${site.url}${partageCollection(item.slug, item.name).url}`,
+        caption: item.name,
+      },
+      isPartOf: { "@id": `${site.url}/#site` },
+    },
+  ];
+
   return (
     <main id="contenu" className="pt-[68px]">
+      <JsonLd data={donnees} />
       <Section>
         <Reveal>
           <Link
@@ -166,7 +201,7 @@ export default async function CollectionPage({ params }: Params) {
               <div className="relative aspect-[631/500] overflow-hidden rounded">
                 <Image
                   src={other.image}
-                  alt={other.name}
+                  alt={`${other.name} — tapis sur mesure`}
                   fill
                   sizes="(max-width: 640px) 100vw, 33vw"
                   className="object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"

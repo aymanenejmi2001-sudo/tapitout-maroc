@@ -1,17 +1,18 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 import TradeForm from "@/components/TradeForm";
 import { sansRappels } from "@/lib/text";
 import { site, trade } from "@/lib/site";
+import JsonLd from "@/components/JsonLd";
+import { filAriane, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Trade Program — Tapitout Maroc",
+export const metadata = pageMetadata({
+  titre: "Programme professionnels — tapis sur mesure | Tapitout Maroc",
   description:
     "Programme professionnels Tapitout : architectes d'intérieur, décorateurs, hôtellerie, promoteurs. Tapis sur mesure, relevé sur site et pose partout au Maroc.",
-  alternates: { canonical: "/professionnels" },
-};
+  chemin: "/professionnels",
+});
 
 /* Une image par public : un décorateur et un hôtelier ne se projettent pas
    dans la même pièce. */
@@ -29,6 +30,7 @@ export default function ProfessionnelsPage() {
 
   return (
     <main id="contenu" className="pt-[68px]">
+      <JsonLd data={filAriane([{ nom: "Accueil", chemin: "/" }, { nom: "Professionnels", chemin: "/professionnels" }])} />
       {/* Ouverture : le texte posé sur une image plein cadre */}
       <section className="px-6 lg:px-9">
         <div className="mx-auto w-full max-w-[1440px]">

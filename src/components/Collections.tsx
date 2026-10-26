@@ -41,7 +41,7 @@ function Card({ item }: { item: Collection }) {
       <div className="relative aspect-[4/5] overflow-hidden rounded">
         <Image
           src={item.image}
-          alt={item.name}
+          alt={`${item.name} — tapis sur mesure`}
           fill
           sizes="(max-width: 640px) 78vw, (max-width: 1024px) 52vw, 36vw"
           className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"

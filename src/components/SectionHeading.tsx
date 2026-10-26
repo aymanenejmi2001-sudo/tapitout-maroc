@@ -7,6 +7,9 @@ type Props = {
   title: string;
   link?: { label: string; href: string };
   align?: "left" | "center";
+  /* h1 sur une page dont ce titre est le titre principal, h2 partout
+     ailleurs : une page doit avoir un seul h1. */
+  level?: "h1" | "h2";
 };
 
 export default function SectionHeading({
@@ -14,6 +17,7 @@ export default function SectionHeading({
   title,
   link,
   align = "left",
+  level = "h2",
 }: Props) {
   const centered = align === "center";
 
@@ -29,7 +33,7 @@ export default function SectionHeading({
         }`}
       >
         <TextReveal
-          as="h2"
+          as={level}
           delay={0.06}
           className="font-display text-[40px] leading-[1.05] text-ink lg:text-[60px]"
         >

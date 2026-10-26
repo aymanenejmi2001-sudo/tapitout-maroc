@@ -1,19 +1,22 @@
 import { Suspense } from "react";
-import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 import { site } from "@/lib/site";
+import JsonLd from "@/components/JsonLd";
+import { filAriane, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact — Tapitout Maroc",
+export const metadata = pageMetadata({
+  titre: "Contact et rendez-vous — Tapitout Maroc, Casablanca",
   description:
-    "Prenez rendez-vous pour un relevé sur place. Tapitout, tapis sur mesure à Casablanca et partout au Maroc.",
-};
+    "Prenez rendez-vous pour un relevé sur place. Tapitout, tapis sur mesure à Casablanca et partout au Maroc : appelez-nous ou écrivez-nous sur WhatsApp.",
+  chemin: "/contact",
+});
 
 export default function ContactPage() {
   return (
     <main id="contenu" className="pt-[68px]">
+      <JsonLd data={filAriane([{ nom: "Accueil", chemin: "/" }, { nom: "Contact", chemin: "/contact" }])} />
       <Section>
         <Reveal>
           <p className="eyebrow text-accent">COMMENÇONS UNE CONVERSATION</p>

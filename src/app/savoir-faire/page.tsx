@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
@@ -6,13 +5,15 @@ import Section from "@/components/Section";
 import Services from "@/components/Services";
 import Stats from "@/components/Stats";
 import { site } from "@/lib/site";
+import JsonLd from "@/components/JsonLd";
+import { filAriane, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Savoir-faire — Tapitout Maroc",
+export const metadata = pageMetadata({
+  titre: "Savoir-faire — relevé, façonnage et pose de tapis sur mesure",
   description:
     "Prise de mesure, essayage à domicile, façonnage au millimètre, quatre finitions de bordure, livraison et pose partout au Maroc.",
-  alternates: { canonical: "/savoir-faire" },
-};
+  chemin: "/savoir-faire",
+});
 
 /* Les quatre finitions de bordure : l'argument le plus concret de la
    maison, et celui qu'aucune page ne montrait jusqu'ici. */
@@ -46,6 +47,7 @@ const finitions = [
 export default function SavoirFairePage() {
   return (
     <main id="contenu" className="pt-[68px]">
+      <JsonLd data={filAriane([{ nom: "Accueil", chemin: "/" }, { nom: "Savoir-faire", chemin: "/savoir-faire" }])} />
       {/* Ouverture : le texte, puis une image pleine largeur */}
       <Section spacing="tight" className="pt-14 lg:pt-16">
         <div className="max-w-[820px]">

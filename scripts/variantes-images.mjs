@@ -39,7 +39,8 @@ async function sourcesDuCode(dossier) {
     } else if (/\.(tsx?|css)$/.test(e.name)) {
       const texte = await readFile(chemin, 'utf8');
       for (const m of texte.matchAll(/\/images\/([A-Za-z0-9_\-./]+\.(?:jpe?g|png|webp))/g)) {
-        cites.add(m[1]);
+        /* Les aperçus de partage sont lus tels quels, sans variantes. */
+        if (!m[1].startsWith('partage/')) cites.add(m[1]);
       }
     }
   }

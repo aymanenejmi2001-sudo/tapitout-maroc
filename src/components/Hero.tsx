@@ -75,7 +75,8 @@ export default function Hero() {
                 d'écran, même si visuellement c'est le logo qui s'affiche. */}
             <h1 className="m-0">
               <span className="sr-only">
-                Tapitout — tapis sur mesure au Maroc
+                Tapitout Maroc — tapis sur mesure à Casablanca et partout au
+                Maroc
               </span>
               <Image
                 src="/images/logo-white.png"

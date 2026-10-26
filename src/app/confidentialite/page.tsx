@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
 import { site } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Politique de confidentialité — Tapitout Maroc",
-  description:
-    "Comment Tapitout Maroc collecte et utilise vos données personnelles.",
-  robots: { index: false },
-};
+export const metadata = pageMetadata({
+  titre: "Politique de confidentialité — Tapitout Maroc",
+  description: "Comment Tapitout Maroc collecte et utilise vos données personnelles.",
+  chemin: "/confidentialite",
+  indexable: false,
+});
 
 export default function ConfidentialitePage() {
   return (

@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Conditions générales — Tapitout Maroc",
+export const metadata = pageMetadata({
+  titre: "Conditions générales — Tapitout Maroc",
   description: "Conditions générales de vente de Tapitout Maroc.",
-  robots: { index: false },
-};
+  chemin: "/conditions-generales",
+  indexable: false,
+});
 
 export default function ConditionsGeneralesPage() {
   return (

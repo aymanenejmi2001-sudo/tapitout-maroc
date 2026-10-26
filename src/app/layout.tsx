@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,6 +9,8 @@ import PageTransition from "@/components/PageTransition";
 import Cursor from "@/components/Cursor";
 import SmoothScroll from "@/components/SmoothScroll";
 import { site } from "@/lib/site";
+import JsonLd from "@/components/JsonLd";
+import { donneesEntreprise, PARTAGE_DEFAUT } from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({
@@ -39,44 +41,21 @@ export const metadata: Metadata = {
     title: "Tapitout Maroc — Tapis sur mesure, du relevé à la pose",
     description:
       "On ne vend pas des tapis · On installe une ambiance. Relevé sur place, façonnage au millimètre, pose partout au Maroc.",
-    images: [
-      {
-        url: "/images/hero.jpg",
-        width: 1920,
-        height: 1080,
-        alt: "Intérieur habillé par un tapis Tapitout",
-      },
-    ],
+    images: [PARTAGE_DEFAUT],
   },
   twitter: {
     card: "summary_large_image",
     title: "Tapitout Maroc — Tapis sur mesure",
     description:
       "Relevé sur place, façonnage au millimètre, pose partout au Maroc.",
-    images: ["/images/hero.jpg"],
+    images: [PARTAGE_DEFAUT.url],
   },
-  alternates: { canonical: "/" },
+  /* Pas de canonique ici : héritée, elle ferait de chaque page une copie de
+     l'accueil. Chaque page déclare la sienne (voir lib/seo.ts). */
 };
 
-/* Fiche établissement pour Google : c'est ce qui permet d'apparaître dans
-   le bloc Maps sur une recherche « tapis sur mesure Casablanca ». */
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "HomeGoodsStore",
-  name: "Tapitout Maroc",
-  image: `${site.url}/images/hero.jpg`,
-  url: site.url,
-  telephone: site.phoneIntl,
-  email: site.email,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "408, 410 Bd Oued Edaoura",
-    addressLocality: site.city,
-    postalCode: site.postalCode,
-    addressCountry: site.country,
-  },
-  priceRange: "$$",
-  areaServed: "MA",
+export const viewport: Viewport = {
+  themeColor: "#fbfaf7",
 };
 
 export default function RootLayout({
@@ -85,14 +64,17 @@ export default function RootLayout({
   return (
     <html lang="fr" className={inter.variable}>
       <head>
+        {/* La feuille de police vit sur un autre domaine : sans ces deux
+            préconnexions, le navigateur attend d'avoir lu la page pour
+            seulement commencer à le joindre, et le texte s'affiche plus
+            tard. */}
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
         <link
           href="https://api.fontshare.com/v2/css?f[]=switzer@400,500&display=swap"
           rel="stylesheet"
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <JsonLd data={donneesEntreprise()} />
       </head>
       <body>
         {/* Premier element atteint par la touche Tab : permet de sauter la
