@@ -150,7 +150,7 @@ export default function Header() {
 
               <div className="relative hidden md:block">
                 <Image
-                  src="/images/menu.jpg"
+                  src="/images/bespoke-5.jpg"
                   alt=""
                   fill
                   sizes="50vw"

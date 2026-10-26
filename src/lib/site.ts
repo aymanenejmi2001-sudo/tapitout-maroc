@@ -32,28 +32,28 @@ export const process = [
     title: "Le relevé",
     body: "Nous venons chez vous mesurer la pièce au centimètre : longueurs, angles, seuils de porte, zones de passage. Nous notons aussi ce qu'aucun plan ne montre — la circulation, l'ouverture des portes, la place réelle des meubles.",
     duration: "Sur rendez-vous",
-    image: "/images/gal-1.jpg",
+    image: "/images/realisations/projet-9.webp",
   },
   {
     label: "02 / Choisir",
     title: "Analyse de vos besoins",
     body: "Nous apportons les échantillons chez vous et les posons à l'endroit exact, sous votre lumière. Densité, hauteur de poil, teinte : le choix se fait devant votre sol, jamais sous un éclairage de showroom.",
     duration: "Essayage à domicile",
-    image: "/images/col-calmora.jpg",
+    image: "/images/realisations/projet-3.webp",
   },
   {
     label: "03 / Façonner",
     title: "L'atelier",
     body: "La taille est arrêtée au millimètre à partir du relevé. Toutes formes : salons en L, couloirs, escaliers, pièces sous pente, découpes autour d'obstacles. Puis la bordure, selon l'une de nos quatre finitions.",
     duration: "Fabrication sur mesure",
-    image: "/images/gal-texture.jpg",
+    image: "/images/collections/velaris-1.webp",
   },
   {
     label: "04 / Poser",
     title: "La livraison",
     body: "Livraison partout au Maroc en emballage protégé. Pose assurée sur demande, avec vérification des alignements et des jeux de seuil avant notre départ.",
     duration: "Partout au Maroc",
-    image: "/images/gal-salon-bois.jpg",
+    image: "/images/realisations/projet-12.webp",
   },
 ];
 
@@ -213,7 +213,7 @@ export const invite = {
   body: "Nous apportons les matières à votre domicile et les posons à l'endroit exact, sous votre lumière. Le relevé au millimètre se fait dans la foulée.",
   primary: "Demander un essayage",
   secondary: "Voir les collections",
-  image: "/images/col-calmora.jpg",
+  image: "/images/realisations/projet-1.webp",
   /* Déclencheurs : la fenêtre attend que le visiteur soit engagé —
      45 % de la page lue, ou 25 s passées, ou un départ vers l'onglet.
      Jamais à l'arrivée : c'est ce que Google sanctionne sur mobile. */
@@ -559,38 +559,38 @@ export const services = [
   {
     title: "Prise de mesure",
     body: "Nous nous déplaçons chez vous. Relevé au centimètre : longueurs, angles, seuils de porte, retours de mur, zones de passage. Nous notons aussi ce qui n'apparaît sur aucun plan — la circulation, l'ouverture des portes, la position réelle des meubles. Un relevé juste conditionne tout le reste.",
-    image: "/images/gal-1.jpg",
-    alt: "Relevé des dimensions d'une pièce chez un client",
+    image: "/images/realisations/projet-9.webp",
+    alt: "Grand séjour d'un client, sol en marbre poli, avant la pose du tapis",
   },
   {
     title: "Essayage",
     body: "Un tapis ne se choisit pas sous un éclairage de showroom. Nous apportons les matières chez vous et les posons à l'endroit exact, sous votre lumière. Vous voyez la teinte réagir au matin et au soir, la texture répondre à votre sol. Vous décidez ensuite.",
-    image: "/images/col-calmora.jpg",
-    alt: "Matière veloutée présentée dans un intérieur",
+    image: "/images/realisations/projet-5.webp",
+    alt: "Tapis Tapitout posé dans un salon, sous la lumière de la pièce",
   },
   {
     title: "Expertise",
     body: "Densité, matière, hauteur de poil, sens du tissage, type de finition. Chaque choix engage l'entretien, le confort et la durée de vie de la pièce. Nous orientons selon l'usage réel de l'espace : passage intense ou chambre calme, enfants, animaux, exposition au soleil.",
-    image: "/images/gal-texture.jpg",
-    alt: "Détail du relief et de la hauteur de poil d'un tapis",
+    image: "/images/collections/velaris-1.webp",
+    alt: "Gros plan sur la laine et le relief d'un tapis Tapitout",
   },
   {
     title: "Façonnage sur mesure",
     body: "Toutes dimensions, toutes formes. Salons en L, couloirs, escaliers, pièces sous pente, découpes autour d'obstacles. La taille est arrêtée au millimètre à partir du relevé, sans approximation ni reprise.",
-    image: "/images/gal-forme-libre.jpg",
-    alt: "Grand tapis à contour libre façonné sur mesure",
+    image: "/images/bespoke-2.jpg",
+    alt: "Tapis au contour libre dans une pièce aux murs sable",
   },
   {
     title: "Finitions de bordure",
     body: "Quatre techniques maîtrisées en interne : couture machine pour la régularité, couture manuelle pour les formes complexes, finition invisible à la résine pour les bords nets, galon semi-cuir pour un contour affirmé. Le choix se fait avec la matière, jamais avant.",
-    image: "/images/col-riviera.jpg",
-    alt: "Détail du tissage et de la bordure d'un tapis",
+    image: "/images/collections/cloff-1.webp",
+    alt: "Gros plan sur le tissage d'un tapis Tapitout",
   },
   {
     title: "Livraison & pose",
     body: "Livraison partout au Maroc, emballage protégé. Pose assurée sur demande, avec vérification des alignements et des jeux de seuil avant notre départ.",
-    image: "/images/gal-salon-bois.jpg",
-    alt: "Tapis posé dans un séjour",
+    image: "/images/realisations/projet-12.webp",
+    alt: "Tapis posé dans un séjour, autour de tables basses en bois",
   },
 ];
 

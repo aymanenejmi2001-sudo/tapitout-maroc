@@ -29,7 +29,7 @@ export default function Stats() {
             sans jamais disputer la lecture aux chiffres. */}
         <div className="absolute inset-0 opacity-[0.22]">
           <ParallaxImage
-            src="/images/gal-texture.jpg"
+            src="/images/collections/velaris-1.webp"
             alt=""
             sizes="100vw"
             amount={10}

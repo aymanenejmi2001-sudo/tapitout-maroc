@@ -20,7 +20,7 @@ const visuels = [
   "/images/bespoke-3.jpg",
   "/images/bespoke-5.jpg",
   "/images/bespoke-4.jpg",
-  "/images/gal-forme-libre.jpg",
+  "/images/realisations/projet-13.webp",
 ];
 
 export default function ProfessionnelsPage() {
