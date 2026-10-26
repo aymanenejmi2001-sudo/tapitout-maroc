@@ -1,0 +1,7 @@
+Switzer — Indian Type Foundry (ITF).
+Distribuée par Fontshare sous la licence « ITF Free Font License », qui
+autorise l'usage commercial. https://www.fontshare.com/fonts/switzer
+
+Ces deux fichiers (Regular 400, Medium 500) sont servis depuis le site
+au lieu d'être chargés depuis api.fontshare.com : la feuille de style
+externe bloquait l'affichage de la page.

@@ -19,7 +19,8 @@
   --color-sand: #f6f2ee;
   --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-body:
-    "Switzer", var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+    var(--font-switzer), var(--font-inter), ui-sans-serif, system-ui,
+    sans-serif;
 }
 
 html {

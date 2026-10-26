@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -16,6 +17,18 @@ import "./globals.css";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+/* Switzer servie depuis le site. Chargée depuis api.fontshare.com, sa
+   feuille de style bloquait l'affichage de la page près d'une seconde sur
+   mobile : le texte et l'image d'accueil attendaient un serveur tiers. */
+const switzer = localFont({
+  src: [
+    { path: "../fonts/Switzer-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/Switzer-Medium.woff2", weight: "500", style: "normal" },
+  ],
+  variable: "--font-switzer",
   display: "swap",
 });
 
@@ -62,20 +75,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" className={inter.variable}>
+    <html lang="fr" className={`${inter.variable} ${switzer.variable}`}>
       <head>
-        {/* La feuille de police vit sur un autre domaine : sans ces deux
-            préconnexions, le navigateur attend d'avoir lu la page pour
-            seulement commencer à le joindre, et le texte s'affiche plus
-            tard. */}
-        <link rel="preconnect" href="https://api.fontshare.com" />
-        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=switzer@400,500&display=swap"
-          rel="stylesheet"
-        />
         <JsonLd data={donneesEntreprise()} />
-      </head>
+</head>
       <body>
         {/* Premier element atteint par la touche Tab : permet de sauter la
             navigation, qui est longue, pour aller droit au contenu. */}

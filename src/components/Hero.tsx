@@ -55,6 +55,7 @@ export default function Hero() {
             alt="Intérieur habillé par un tapis Tapitout"
             fill
             priority
+            fetchPriority="high"
             sizes="100vw"
             className="scale-110 object-cover"
           />
