@@ -52,6 +52,7 @@ Le site est servi par **Cloudflare Pages**, relié à ce dépôt : chaque
 - Avant de pousser, `npm run construire` fabrique le site en local pour le
   vérifier.
 
-`npm run publier` et la branche `gh-pages` sont l'ancien hébergement sur
-GitHub Pages, abandonné : le certificat HTTPS du domaine personnalisé n'y a
-jamais été émis. Ils sont conservés au cas où.
+`npm run publier` est l'ancien hébergement sur GitHub Pages, abandonné : le
+certificat HTTPS du domaine personnalisé n'y a jamais été émis. Le script est
+conservé au cas où ; la branche `gh-pages` qu'il produit a été supprimée, car
+Cloudflare tentait de la construire à chaque modification.
