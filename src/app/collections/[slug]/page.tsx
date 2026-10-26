@@ -9,6 +9,10 @@ import { sansRappels } from "@/lib/text";
 
 type Params = { params: Promise<{ slug: string }> };
 
+/* Seules les collections connues existent : tout autre chemin est une 404.
+   L'export statique l'exige, et c'est déjà le comportement voulu. */
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return collections.map((c) => ({ slug: c.slug }));
 }

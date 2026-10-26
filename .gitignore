@@ -45,3 +45,8 @@ next-env.d.ts
 # dossiers contiennent une espace finale, que Git et Windows gèrent mal.
 /GALLERIE*/
 /galerie*/
+
+# Version publiée : tout ceci se fabrique, rien ne se versionne.
+/public/_i/
+/out/
+/.next-export/

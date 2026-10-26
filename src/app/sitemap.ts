@@ -3,6 +3,8 @@ import { collections, site } from "@/lib/site";
 
 /* Plan du site pour les moteurs de recherche. Les pages légales en sont
    volontairement absentes : elles sont marquées non indexables. */
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
