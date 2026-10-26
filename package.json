@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "publier": "bash scripts/publier.sh"
+    "publier": "bash scripts/publier.sh",
+    "construire": "bash scripts/construire.sh"
   },
   "dependencies": {
     "lenis": "^1.3.26",
@@ -23,6 +24,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.1",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

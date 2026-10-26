@@ -15,21 +15,8 @@ racine="$(pwd)"
 
 depot="$(git remote get-url origin)"
 
-node scripts/variantes-images.mjs
-rm -rf .next-export
-EXPORT_STATIQUE=1 npx next build
-rm -rf public/_i
-
-# L'export est écrit dans .next-export (c'est son distDir). On n'y garde que
-# ce que le navigateur peut réellement demander : les originaux pèsent
-# plusieurs dizaines de Mo et seules les variantes de _i sont servies.
-# Restent hero.jpg, les aperçus de partage (lus tels quels) et les vectoriels.
+bash scripts/construire.sh
 out=.next-export
-find "$out/images" -type f ! -name 'hero.jpg' ! -name '*.svg' ! -path '*/partage/*' -delete
-find "$out/images" -type d -empty -delete
-
-# GitHub Pages ignore les dossiers commençant par « _ » sans ce fichier.
-touch "$out/.nojekyll"
 
 tmp="$(mktemp -d)"
 cp -R "$out"/. "$tmp"
