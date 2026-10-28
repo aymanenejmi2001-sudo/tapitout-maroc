@@ -7,10 +7,12 @@ export const site = {
      affichee : le visiteur voit l'adresse de la maison, les demandes
      arrivent dans la boite reellement relevee. */
   formEmail: "heythelab@gmail.com",
-  phone: "0604926202",
+  /* Le même numéro sert au téléphone et à WhatsApp. Il n'est écrit qu'ici :
+     tout le site le lit dans ce bloc. */
+  phone: "0700-111414",
   /* Format international, requis par WhatsApp et par les liens d'appel. */
-  phoneIntl: "+212604926202",
-  whatsapp: "212604926202",
+  phoneIntl: "+212700111414",
+  whatsapp: "212700111414",
   address: "408, 410 Bd Oued Edaoura, Casablanca 20240",
   city: "Casablanca",
   postalCode: "20240",

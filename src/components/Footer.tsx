@@ -45,7 +45,7 @@ export default function Footer() {
                 <p>{site.address}</p>
                 <p>
                   <a
-                    href={`tel:${site.phone}`}
+                    href={`tel:${site.phoneIntl}`}
                     className="inline-block py-2.5 transition-colors hover:text-paper"
                   >
                     {site.phone}
