@@ -34,3 +34,26 @@ async function fabrique(source, nom) {
 /* Accueil : le panoramique du bloc « Bespoke », déjà au bon format. */
 await fabrique('images/bespoke-2.jpg', 'accueil');
 for (const [, slug, image] of paires) await fabrique(image.replace(/^\//, ''), slug);
+
+/* Journal : l'aperçu de partage (1200 x 630) et les trois rapports que
+   Google demande pour un article — 16:9, 4:3 et 1:1 —, afin qu'il puisse
+   choisir le recadrage qui convient à chaque surface. */
+const journal = await readFile(path.join(racine, 'src/lib/journal.ts'), 'utf8');
+const articles = [...journal.matchAll(/slug:\s*"([^"]+)",\s*titre:[\s\S]*?\n\s*image:\s*"([^"]+)"/g)];
+
+async function recadre(source, nom, largeur, hauteur) {
+  await sharp(path.join(racine, 'public', source))
+    .rotate()
+    .resize(largeur, hauteur, { fit: 'cover', position: 'centre' })
+    .jpeg({ quality: 82, mozjpeg: true })
+    .toFile(path.join(sortie, `${nom}.jpg`));
+}
+
+for (const [, slug, image] of articles) {
+  const source = image.replace(/^\//, '');
+  await recadre(source, `journal-${slug}`, 1200, 630);
+  await recadre(source, `journal-${slug}-16x9`, 1200, 675);
+  await recadre(source, `journal-${slug}-4x3`, 1200, 900);
+  await recadre(source, `journal-${slug}-1x1`, 1200, 1200);
+  console.log(`journal-${slug}  4 recadrages`);
+}

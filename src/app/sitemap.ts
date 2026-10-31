@@ -1,5 +1,6 @@
 import { execSync } from "node:child_process";
 import type { MetadataRoute } from "next";
+import { articles } from "@/lib/journal";
 import { collections } from "@/lib/site";
 import { adresse, imagePubliee } from "@/lib/seo";
 
@@ -40,6 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { chemin: "/savoir-faire", priority: 0.8, changeFrequency: "yearly" as const },
     { chemin: "/a-propos", priority: 0.7, changeFrequency: "yearly" as const },
     { chemin: "/professionnels", priority: 0.8, changeFrequency: "yearly" as const },
+    { chemin: "/journal", priority: 0.7, changeFrequency: "weekly" as const },
     { chemin: "/contact", priority: 0.8, changeFrequency: "yearly" as const },
   ];
 
@@ -58,6 +60,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       /* Les photographies de la fiche, pour Google Images : un tapis se
          cherche aussi à l'œil. */
       images: [c.image, ...(c.gallery ?? [])].map(imagePubliee),
+    })),
+    ...articles.map((a) => ({
+      url: adresse(`/journal/${a.slug}`),
+      /* La date de l'article, pas celle du dernier commit : elle ne bouge
+         que lorsque le texte change vraiment. */
+      lastModified: new Date(a.modifie),
+      changeFrequency: "yearly" as const,
+      priority: 0.6,
+      images: [imagePubliee(a.image)],
     })),
   ];
 }

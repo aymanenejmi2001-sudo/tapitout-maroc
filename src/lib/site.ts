@@ -398,6 +398,7 @@ export const navLinks = [
   { label: "Savoir-faire", href: "/savoir-faire" },
   { label: "À propos", href: "/a-propos" },
   { label: "Professionnels", href: "/professionnels" },
+  { label: "Journal", href: "/journal" },
   { label: "Contact", href: "/contact" },
 ];
 
