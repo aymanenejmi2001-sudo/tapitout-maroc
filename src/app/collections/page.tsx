@@ -9,7 +9,7 @@ import { adresse, filAriane, nomsCollections, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   titre: "Collections de tapis sur mesure — Tapitout Maroc",
-  description: `${collections.length} collections de tapis façonnables sur mesure, toutes dimensions et toutes formes : ${nomsCollections.join(", ")}.`,
+  description: `${collections.length} collections de tapis sur mesure, toutes dimensions et toutes formes : ${nomsCollections.slice(0, 6).join(", ")} et plus encore.`,
   chemin: "/collections",
 });
 

@@ -34,9 +34,18 @@ export type Bloc =
 export type Article = {
   slug: string;
   titre: string;
+  titreSeo: string;
   /* Entre 120 et 160 caractères : c'est ce que Google affiche dans les
      résultats. Elle est relue comme le reste. */
   description: string;
+  /* Réponse directe, en deux phrases, placée en tête de l'article : c'est
+     ce que les moteurs de réponses (AI Overviews, ChatGPT, Perplexity)
+     reprennent. Elle doit se comprendre sans lire le reste. */
+  enBref: string;
+  /* Questions que les lecteurs posent vraiment, avec une réponse courte.
+     Visibles sur la page ; aucun balisage FAQPage, que Google réserve
+     désormais à quelques catégories de sites. */
+  faq: { q: string; r: string }[];
   /* Phrase d'accroche de la liste d'articles. */
   extrait: string;
   categorie: string;
@@ -55,11 +64,20 @@ export type Article = {
 export const articles: Article[] = [
   {
     slug: "comment-choisir-un-tapis-sur-mesure-pour-son-salon",
+    /* Titre affiché dans les résultats : 60 caractères au plus, marque comprise. */
+    titreSeo: "Choisir un tapis sur mesure pour son salon",
     titre: "Comment choisir un tapis sur mesure pour son salon",
     description:
       "Rôle, dimensions, matière, hauteur de poil, teinte : les cinq questions à trancher avant de commander un tapis sur mesure pour votre salon.",
     extrait:
       "Cinq questions à trancher dans l'ordre, avant de commander : ce qui compte vraiment, et ce qui se décide mieux chez vous qu'en magasin.",
+    enBref:
+      "Pour choisir un tapis sur mesure, tranchez dans l'ordre : son rôle dans la pièce, ses dimensions, sa matière selon l'usage, sa hauteur de poil, puis sa teinte, à regarder chez vous à plusieurs heures de la journée. Le budget se fixe ensuite, à dimensions et composition égales.",
+    faq: [
+      { q: "Par quoi commencer pour choisir un tapis de salon ?", r: "Par son rôle : rassembler un coin salon, réchauffer un sol froid, absorber le bruit ou donner du caractère. Ce rôle guide ensuite les dimensions, la matière et la hauteur de poil." },
+      { q: "Quelle différence entre un tapis sur mesure et un tapis standard ?", r: "Un tapis standard se choisit parmi quelques formats existants. Un tapis sur mesure part de la pièce : sa forme, ses dimensions et sa bordure sont décidées pour elle." },
+      { q: "Comment choisir la couleur d'un tapis ?", r: "Regardez un échantillon posé à l'endroit exact où le tapis ira, le matin et le soir : la teinte change avec la lumière, les murs et le sol." },
+    ],
     categorie: "Guide",
     publie: "2026-10-31T09:00:00+01:00",
     modifie: "2026-10-31T09:00:00+01:00",
@@ -155,11 +173,20 @@ export const articles: Article[] = [
 
   {
     slug: "quelle-taille-de-tapis-pour-un-salon",
+    /* Titre affiché dans les résultats : 60 caractères au plus, marque comprise. */
+    titreSeo: "Quelle taille de tapis pour un salon ?",
     titre: "Quelle taille de tapis pour un salon ? Les repères à connaître",
     description:
-      "Pieds avant des canapés, marge autour du tapis, table à manger : les repères courants pour choisir les bonnes dimensions, et pourquoi la pièce a le dernier mot.",
+      "Pieds avant des canapés, marge autour du tapis, table à manger : les repères courants pour choisir les dimensions, et pourquoi la pièce a le dernier mot.",
     extrait:
       "Trop petit, un tapis flotte au milieu du salon. Les repères d'usage pour le dimensionner, et les cas où la pièce impose sa propre forme.",
+    enBref:
+      "Un tapis de salon doit relier les assises : en général, au moins les pieds avant des canapés et des fauteuils reposent dessus, avec 30 à 50 cm de sol visible autour. Sous une table à manger, comptez environ 60 cm au-delà de la table. Ce sont des repères d'usage : la pièce a le dernier mot.",
+    faq: [
+      { q: "Quelle taille de tapis choisir pour un salon ?", r: "Assez grand pour que les canapés et les fauteuils aient au moins leurs pieds avant dessus. Un tapis uniquement sous la table basse paraît le plus souvent trop petit." },
+      { q: "Combien de sol laisser visible autour du tapis ?", r: "Souvent entre 30 et 50 cm. La marge peut être réduite dans une petite pièce et plus large dans une très grande." },
+      { q: "Quelle taille de tapis sous une table à manger ?", r: "Il doit dépasser la table d'environ 60 cm de chaque côté, pour rester sous les chaises quand on les recule." },
+    ],
     categorie: "Guide",
     publie: "2026-10-31T09:00:00+01:00",
     modifie: "2026-10-31T09:00:00+01:00",
@@ -249,11 +276,20 @@ export const articles: Article[] = [
 
   {
     slug: "quelle-matiere-de-tapis-choisir",
+    /* Titre affiché dans les résultats : 60 caractères au plus, marque comprise. */
+    titreSeo: "Quelle matière de tapis choisir ?",
     titre: "Quelle matière de tapis choisir selon l'usage de la pièce",
     description:
-      "Laine, viscose, coton, fibres végétales, synthétiques : ce que chaque matière fait bien, ce qu'elle supporte mal, et comment choisir selon le passage, les enfants ou le soleil.",
+      "Laine, viscose, coton, jute, synthétiques : ce que chaque matière de tapis supporte, et comment choisir selon le passage, les enfants ou le soleil.",
     extrait:
       "Laine, viscose, coton, jute, synthétiques : ce que chaque fibre supporte, et celle qu'il faut choisir selon le passage, les enfants ou le soleil.",
+    enBref:
+      "Choisissez la matière selon l'usage réel de la pièce : la laine résiste bien à l'écrasement et convient au passage, la viscose est brillante mais fragile à l'eau, les fibres synthétiques tolèrent taches et humidité, le jute et le sisal sont robustes mais rêches. Vérifiez toujours la composition exacte.",
+    faq: [
+      { q: "Quelle est la matière de tapis la plus résistante ?", r: "La laine est la fibre naturelle de référence : élastique, elle reprend sa forme après écrasement. Pour les zones très sollicitées ou humides, une fibre synthétique de qualité est aussi un bon choix." },
+      { q: "Quelle matière choisir avec des enfants ou des animaux ?", r: "Une matière qui pardonne les taches et se nettoie sans craindre l'eau. Évitez la viscose, qui supporte mal l'eau." },
+      { q: "La viscose est-elle adaptée à un tapis de salon ?", r: "Pour une pièce calme, oui : elle donne de la brillance aux motifs. Elle convient mal aux passages intenses et aux zones humides." },
+    ],
     categorie: "Guide",
     publie: "2026-10-31T09:00:00+01:00",
     modifie: "2026-10-31T09:00:00+01:00",
@@ -357,11 +393,20 @@ export const articles: Article[] = [
 
   {
     slug: "tapis-sur-mesure-forme-libre",
+    /* Titre affiché dans les résultats : 60 caractères au plus, marque comprise. */
+    titreSeo: "Tapis à contour libre : quand oser",
     titre: "Tapis à contour libre : quand oser une forme sur mesure",
     description:
-      "Salon en L, canapé arrondi, colonne, escalier : dans quels cas un tapis découpé à la forme de la pièce est la bonne solution, et ce qu'il demande en précision.",
+      "Salon en L, canapé arrondi, colonne, escalier : quand un tapis découpé à la forme de la pièce s'impose, et la précision de relevé qu'il exige.",
     extrait:
       "Une pièce n'est pas toujours un rectangle. Les cas où un tapis découpé à la forme de l'espace est la bonne réponse, et ce qu'il exige du relevé.",
+    enBref:
+      "Un tapis à contour libre suit la forme de la pièce ou des meubles : salon en L, canapé courbe, colonne, alcôve, couloir, escalier. Plus la forme s'éloigne du rectangle, plus le relevé sur place doit être précis, et plus la finition du bord compte.",
+    faq: [
+      { q: "Dans quels cas choisir un tapis de forme libre ?", r: "Quand la pièce n'est pas un rectangle dégagé : salon en L, canapé arrondi, colonne ou cheminée à contourner, pièce sous pente, couloir ou escalier." },
+      { q: "Quelles finitions de bordure existent chez Tapitout ?", r: "Quatre : couture machine, couture manuelle, finition invisible à la résine et galon semi-cuir." },
+      { q: "Pourquoi le relevé est-il si important pour une forme libre ?", r: "Parce que quelques centimètres d'erreur se voient d'autant plus que la forme est complexe. Le relevé note aussi les seuils, les portes et la circulation." },
+    ],
     categorie: "Guide",
     publie: "2026-10-31T09:00:00+01:00",
     modifie: "2026-10-31T09:00:00+01:00",
@@ -436,11 +481,20 @@ export const articles: Article[] = [
 
   {
     slug: "entretenir-un-tapis-en-laine",
+    /* Titre affiché dans les résultats : 60 caractères au plus, marque comprise. */
+    titreSeo: "Entretenir un tapis en laine",
     titre: "Comment entretenir un tapis en laine au quotidien",
     description:
       "Aspirateur, taches, soleil, rotation, nettoyage professionnel : les gestes simples qui prolongent la vie d'un tapis en laine, et les erreurs à éviter.",
     extrait:
       "La laine pardonne beaucoup, à condition de quelques gestes réguliers. Aspirer, tamponner, tourner : l'essentiel, et ce qu'il faut éviter.",
+    enBref:
+      "Pour entretenir un tapis en laine : aspirez régulièrement sans brosse rotative sur un poil haut ou des boucles, tamponnez les taches sans frotter, tournez le tapis de temps en temps, protégez-le du soleil direct et confiez les taches tenaces à un professionnel. Une perte de fibres au début est normale.",
+    faq: [
+      { q: "Comment nettoyer une tache sur un tapis en laine ?", r: "Intervenez vite, épongez avec un linge propre en tamponnant du bord vers le centre, sans frotter ni utiliser d'eau chaude. Pour une tache tenace, mieux vaut un professionnel." },
+      { q: "Pourquoi mon tapis en laine neuf perd-il des fibres ?", r: "Ce sont de petites fibres lâches issues de la fabrication. Ce n'est pas un défaut : l'aspirateur régulier les retire et le phénomène s'atténue." },
+      { q: "À quelle fréquence tourner un tapis ?", r: "Un demi-tour une à deux fois par an est un repère courant, pour répartir l'usure et la décoloration." },
+    ],
     categorie: "Entretien",
     publie: "2026-10-31T09:00:00+01:00",
     modifie: "2026-10-31T09:00:00+01:00",
@@ -526,11 +580,20 @@ export const articles: Article[] = [
 
   {
     slug: "prise-de-mesures-tapis-a-domicile",
+    /* Titre affiché dans les résultats : 60 caractères au plus, marque comprise. */
+    titreSeo: "Prise de mesures d'un tapis à domicile",
     titre: "Prise de mesures d'un tapis à domicile : comment ça se passe",
     description:
       "Relevé au centimètre, essayage sous votre lumière, fabrication à l'atelier, livraison et pose : les quatre étapes d'un tapis sur mesure Tapitout.",
     extrait:
       "Du relevé chez vous à la pose : les quatre étapes d'un tapis sur mesure, et comment préparer le rendez-vous pour en tirer le meilleur.",
+    enBref:
+      "Chez Tapitout, un tapis sur mesure suit quatre étapes : relevé au centimètre chez vous, essayage des échantillons sous votre lumière, fabrication en atelier à Casablanca avec la bordure de votre choix, puis livraison partout au Maroc et pose sur demande.",
+    faq: [
+      { q: "Comment se passe la prise de mesures d'un tapis ?", r: "Nous venons chez vous sur rendez-vous : longueurs, angles, seuils, retours de mur et zones de passage sont relevés au centimètre." },
+      { q: "Où sont fabriqués les tapis Tapitout ?", r: "Dans notre atelier à Casablanca : relevé, choix de la matière, coupe, bordure et pose se font entre nos mains." },
+      { q: "Livrez-vous en dehors de Casablanca ?", r: "Oui, nous livrons partout au Maroc, sous emballage protégé. La pose est assurée sur demande." },
+    ],
     categorie: "Coulisses",
     publie: "2026-10-31T09:00:00+01:00",
     modifie: "2026-10-31T09:00:00+01:00",

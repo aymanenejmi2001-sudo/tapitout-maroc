@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const article = articleParSlug(slug);
   if (!article) return {};
   const meta = pageMetadata({
-    titre: `${article.titre} | Tapitout Maroc`,
+    titre: `${article.titreSeo} | Tapitout Maroc`,
     description: article.description,
     chemin: `/journal/${article.slug}`,
     type: "article",
@@ -142,7 +142,31 @@ export default async function ArticlePage({ params }: Params) {
             </div>
           </Reveal>
 
+          <aside className="mt-10 rounded border border-black/10 bg-sand px-6 py-6">
+            <p className="eyebrow text-accent">En bref</p>
+            <p className="mt-3 text-[17px] leading-[1.65] text-ink">
+              {article.enBref}
+            </p>
+          </aside>
+
           <ArticleBody blocs={article.contenu} />
+
+          <section aria-labelledby="faq" className="mt-16">
+            <h2
+              id="faq"
+              className="font-display text-[28px] leading-[1.15] text-ink lg:text-[32px]"
+            >
+              Questions fréquentes
+            </h2>
+            <dl className="mt-6 divide-y divide-black/10 border-y border-black/10">
+              {article.faq.map((f) => (
+                <div key={f.q} className="py-5">
+                  <dt className="font-medium text-ink">{f.q}</dt>
+                  <dd className="mt-2 leading-[1.7] text-ink/75">{f.r}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
 
           <div className="mt-16 rounded bg-ink px-7 py-9 text-paper">
             <p className="eyebrow text-paper/60">Votre projet</p>

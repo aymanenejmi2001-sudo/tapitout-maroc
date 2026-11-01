@@ -1,0 +1,19 @@
+# Tapitout Maroc
+
+> Atelier de tapis sur mesure à Casablanca (Maroc). Relevé et essayage chez le client, fabrication et finitions en atelier, livraison partout au Maroc, pose sur demande.
+
+## Pages principales
+- [Accueil](https://www.tapitoutmaroc.com/): présentation de l'atelier
+- [Collections](https://www.tapitoutmaroc.com/collections/): les onze collections de tapis
+- [Savoir-faire](https://www.tapitoutmaroc.com/savoir-faire/): relevé, essayage, atelier, livraison et pose
+- [À propos](https://www.tapitoutmaroc.com/a-propos/): l'entreprise et ses fondateurs
+- [Professionnels](https://www.tapitoutmaroc.com/professionnels/): architectes, décorateurs, hôtels
+- [Contact](https://www.tapitoutmaroc.com/contact/): rendez-vous et devis
+
+## Journal (guides)
+- [Comment choisir un tapis sur mesure pour son salon](https://www.tapitoutmaroc.com/journal/comment-choisir-un-tapis-sur-mesure-pour-son-salon/)
+- [Quelle taille de tapis pour un salon](https://www.tapitoutmaroc.com/journal/quelle-taille-de-tapis-pour-un-salon/)
+- [Quelle matière de tapis choisir](https://www.tapitoutmaroc.com/journal/quelle-matiere-de-tapis-choisir/)
+- [Tapis à contour libre](https://www.tapitoutmaroc.com/journal/tapis-sur-mesure-forme-libre/)
+- [Entretenir un tapis en laine](https://www.tapitoutmaroc.com/journal/entretenir-un-tapis-en-laine/)
+- [Prise de mesures à domicile](https://www.tapitoutmaroc.com/journal/prise-de-mesures-tapis-a-domicile/)

@@ -12,7 +12,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   titre: "Journal — guides du tapis sur mesure | Tapitout Maroc",
   description:
-    "Choisir la taille, la matière et la forme d'un tapis sur mesure, l'entretenir, préparer la prise de mesures : les guides de l'atelier Tapitout, à Casablanca.",
+    "Taille, matière, forme, entretien, prise de mesures : les guides de l'atelier Tapitout, à Casablanca, pour bien choisir un tapis sur mesure.",
   chemin: "/journal",
 });
 
